@@ -1,0 +1,4 @@
+spirit(navcam, pancam)
+curiosity(fhaz, mast, navcam, rhaz, chemcam)
+opportunity(pancam, navcam, )
+perseverance ()
