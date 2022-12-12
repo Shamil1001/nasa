@@ -2,13 +2,15 @@
   <div class="allImages">
     <Header />
     <div class="input-form">
-      <input
-        class="search-form"
-        v-model="text"
-        type="text"
-        placeholder="yyyy-mm-dd"
-      />
-      <h3>{{ this.text }}</h3>
+      <div class="mb-3">
+        <input
+          type="text"
+          v-model="text"
+          class="form-control"
+          placeholder="yyyy-mm-dd"
+        />
+      </div>
+
       <button class="search-button" @click="onClick">Search</button>
     </div>
     <div v-if="text.length !== 0" class="todayPicture">
@@ -109,17 +111,18 @@ export default {
   color: white;
   background: rgb(146, 41, 41);
   width: 75px;
-}
-.search-form {
-  width: 350px;
   height: 50px;
+}
+.form-control {
+  height: 50px;
+  width: 350px;
   font-size: 22px;
   font-weight: 900;
-  border: 1px solid gray;
-  border-radius: 5px;
   padding-left: 10px;
-  color: white;
+  border-radius: 5px;
+  border: 1px solid gray;
 }
+
 .todayPicture {
   text-align: center;
   width: 100%;

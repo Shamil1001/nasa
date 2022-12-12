@@ -1,7 +1,7 @@
 <template>
-  <div class="main">
-    <router-view />
-  </div>
+  <!-- <div class="main"> -->
+  <router-view />
+  <!-- </div> -->
 </template>
 
 <script>
@@ -23,5 +23,13 @@ export default {
 * {
   margin: 0;
   padding: 0;
+}
+@font-face {
+  font-family: Tittilum;
+  src: url("./assets/fonts/tittilium/TitilliumWeb-Bold.ttf");
+}
+.main {
+  font-family: Tittilum;
+  height: 100%;
 }
 </style>

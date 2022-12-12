@@ -8,40 +8,49 @@
       </div>
     </fragment>
     <div class="cards">
-      <div v-if="apod.data" class="apod">
-        <div class="apodImg">
-          <img class="apod-image" :src="this.apod.data.hdurl" />
-          <h3>{{ this.apod.data.title }}</h3>
-          <h4>{{ this.apod.data.date }}</h4>
-        </div>
-        <div class="apodData">
-          <p class="information">{{ this.apod.data.explanation }}</p>
-          <router-link to="/routed">
-            <button class="btn btn-primary infobtn" style="background: red">
-              See more...
-            </button>
-          </router-link>
+      <div class="card">
+        <div class="card-header"><h3>Picture of the Day</h3></div>
+        <img v-if="apod.data" class="apod-image" :src="this.apod.data.hdurl" />
+        <div v-if="apod.data" class="apod card-body">
+          <div class="apodImg">
+            <h3>{{ this.apod.data.title }}</h3>
+            <h4>{{ this.apod.data.date }}</h4>
+          </div>
+          <div class="apodData">
+            <!-- <p class="information">{{ this.apod.data.explanation }}</p> -->
+            <router-link to="/routed">
+              <button class="btn btn-primary infobtn" style="background: red">
+                See more...
+              </button>
+            </router-link>
+          </div>
         </div>
       </div>
       <div class="aboutMars">
-        <!-- <h2 class="marsTitle">Mars Rover Pictures</h2> -->
-        <router-link to="/marsImages">
-          <div class="marsBtn"><h2 style="background: red">See more</h2></div>
-        </router-link>
-        <img src="./mainPage/stephan-khoury-mars-still.jpg" />
-        <!-- <img src="../images/planet-volumes-4IrVnSpwk48-unsplash.jpg" /> -->
+        <div class="card">
+          <div class="card-header"><h3>Mars Pictures</h3></div>
+          <img src="./mainPage/stephan-khoury-mars-still.jpg" />
+          <div v-if="apod.data" class="card-body">
+            <router-link to="/marsImages">
+              <div class="marsBtn"><h2>See more</h2></div>
+            </router-link>
+          </div>
+        </div>
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import Header from "./mainPage/header.vue";
+import Footer from "./mainPage/footer.vue";
 export default {
   name: "Mars",
   components: {
     Header,
+    Footer,
   },
   data() {
     return {
@@ -63,13 +72,18 @@ export default {
 // background-image: url(https://www.witf.io/wp-content/uploads/2020/11/iStock-1159238834-1628x1080.jpg);
 </script>
 <style scoped>
+@font-face {
+  font-family: Tittilum;
+  src: url("../assets/fonts/tittilium/TitilliumWeb-Bold.ttf");
+}
 .main {
   background-image: url("../images/projects.jpg"),
     url("../images/projects-bottom.jpg"),
     linear-gradient(0deg, #323d44, transparent 1300px);
   background-size: contain;
   background-repeat: no-repeat, repeat;
-  min-height: 100%;
+  height: 100%;
+  font-family: Tittilum;
 }
 
 .todo h1 {
@@ -103,9 +117,8 @@ export default {
 }
 
 .apod {
-  margin: 35px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
 }
 .information {
   font-size: 20px;
@@ -113,24 +126,49 @@ export default {
 .infobtn {
   font-size: 20px;
 }
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  background-color: rgb(75, 132, 186);
+  opacity: 100%;
+  width: 45vw;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-header {
+  width: 100%;
+  background-color: rgb(75, 132, 186);
+  color: rgb(255, 255, 255);
+  font-weight: 900;
+  text-align: center;
+}
 .apod h3,
 h4 {
   color: #c1c6cc;
 }
 .apodImg h3,
 h4 {
-  margin-top: 15px;
 }
 .apod img {
   cursor: pointer;
-  width: 90%;
+  width: 100%;
 }
 h2,
 p {
   color: white;
 }
 .apod-image {
-  width: 40%;
+  height: 400px;
+  width: 100%;
 }
 .aboutMars {
   margin-top: 200px;
@@ -145,9 +183,6 @@ p {
   left: 60vw;
 }
 .marsBtn {
-  position: absolute;
-  margin-top: 40%;
-  left: 60vw;
   width: 200px;
   height: 60px;
   color: white;
@@ -156,5 +191,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
+  background-color: transparent;
 }
 </style>

@@ -159,17 +159,6 @@ export default {
       len: 0,
     };
   },
-  // mounted() {
-  //   console.log(this.cam);
-  //   // axios
-  //   //   .get(
-  //   //     `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=7Btd5W7me1bIkphkJ4pBPR3cbuyqV2jNDE1VuMiK`
-  //   //   )
-  //   //   .then((resp) => {
-  //   //     this.marsImg = { ...resp };
-  //   //     console.log(this.marsImg.data);
-  //   //   });
-  // },
 };
 </script>
 <style scoped>
@@ -186,25 +175,28 @@ export default {
   color: white;
   width: 20%;
   height: 12px;
-  margin-bottom: 5px;
+  margin-bottom: 25px;
+  margin-left: 40px;
+  font-size: 20px;
 }
 
 .selection .form-select {
+  margin-left: 40px;
   width: 15%;
   min-width: 200px;
 }
 .selection button {
-  margin-top: 20px;
+  margin: 20px 40px;
   height: 40px;
   width: 7%;
 }
 
 .selection {
   width: 100%;
-
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-top: 30px;
 }
 .marsImg {
   margin: 30px;
