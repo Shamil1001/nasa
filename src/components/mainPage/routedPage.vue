@@ -10,7 +10,6 @@
           placeholder="yyyy-mm-dd"
         />
       </div>
-
       <button class="search-button" @click="onClick">Search</button>
     </div>
     <div v-if="text.length !== 0" class="todayPicture">
@@ -18,7 +17,9 @@
         <h2>{{ this.dayPicture.data.title }}</h2>
         <img class="dayImage" :src="this.dayPicture.data.hdurl" />
         <h4>{{ this.dayPicture.data.date }}</h4>
-        <p class="explanation">{{ this.dayPicture.data.explanation }}</p>
+        <p class="explanation">
+          {{ this.dayPicture.data.explanation }}
+        </p>
       </div>
     </div>
     <div v-if="text.length === 0" class="todayPicture">
@@ -143,7 +144,9 @@ export default {
 
 .explanation {
   color: white;
-  font-size: 20px;
+  font-size: 25px;
   letter-spacing: 2px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 </style>

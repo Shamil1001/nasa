@@ -10,7 +10,6 @@ export default {
 
 <style>
 .footer {
-  margin-top: 100px;
   height: 150px;
   background-color: rgb(9, 14, 45);
 }

@@ -28,8 +28,13 @@ export default {
   font-family: Tittilum;
   src: url("./assets/fonts/tittilium/TitilliumWeb-Bold.ttf");
 }
+@font-face {
+  font-family: Exo;
+  src: url("./assets/fonts/static/Exo2-Bold.ttf");
+}
+
 .main {
-  font-family: Tittilum;
+  font-family: Exo;
   height: 100%;
 }
 </style>

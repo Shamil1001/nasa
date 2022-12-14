@@ -7,39 +7,38 @@
         <input class="search-filter" type="text" />
       </div>
     </fragment>
-    <div class="cards">
-      <div class="card">
-        <div class="card-header"><h3>Picture of the Day</h3></div>
-        <img v-if="apod.data" class="apod-image" :src="this.apod.data.hdurl" />
-        <div v-if="apod.data" class="apod card-body">
-          <div class="apodImg">
-            <h3>{{ this.apod.data.title }}</h3>
-            <h4>{{ this.apod.data.date }}</h4>
-          </div>
-          <div class="apodData">
-            <!-- <p class="information">{{ this.apod.data.explanation }}</p> -->
-            <router-link to="/routed">
-              <button class="btn btn-primary infobtn" style="background: red">
-                See more...
-              </button>
-            </router-link>
-          </div>
+  </div>
+  <div class="cards">
+    <div class="picture">
+      <img v-if="apod.data" class="apod-image" :src="this.apod.data.hdurl" />
+      <div v-if="apod.data" class="apod">
+        <div class="apodImg">
+          <h3>{{ this.apod.data.title }}</h3>
+          <h4>{{ this.apod.data.date }}</h4>
         </div>
-      </div>
-      <div class="aboutMars">
-        <div class="card">
-          <div class="card-header"><h3>Mars Pictures</h3></div>
-          <img src="./mainPage/stephan-khoury-mars-still.jpg" />
-          <div v-if="apod.data" class="card-body">
-            <router-link to="/marsImages">
-              <div class="marsBtn"><h2>See more</h2></div>
-            </router-link>
-          </div>
+        <div class="apodData">
+          <p class="information">{{ this.apod.data.explanation }}</p>
+          <router-link to="/routed">
+            <button class="btn btn-primary infobtn" style="background: red">
+              See more...
+            </button>
+          </router-link>
         </div>
       </div>
     </div>
-    <Footer />
+    <div class="aboutMars">
+      <div v-if="apod.data" class="card-body">
+        <img src="./mainPage/stephan-khoury-mars-still.jpg" />
+        <router-link to="/marsImages">
+          <div class="marsBtn"><h2>See more</h2></div>
+        </router-link>
+      </div>
+      <!-- <div class="card">
+        <div class="card-header"><h3>Mars Pictures</h3></div>
+      </div> -->
+    </div>
   </div>
+  <Footer />
 </template>
 
 <script>
@@ -69,6 +68,8 @@ export default {
       });
   },
 };
+// background: linear-gradient(270deg, #2a4c54 0%, #061072 100%);
+
 // background-image: url(https://www.witf.io/wp-content/uploads/2020/11/iStock-1159238834-1628x1080.jpg);
 </script>
 <style scoped>
@@ -78,11 +79,10 @@ export default {
 }
 .main {
   background-image: url("../images/projects.jpg"),
-    url("../images/projects-bottom.jpg"),
     linear-gradient(0deg, #323d44, transparent 1300px);
-  background-size: contain;
-  background-repeat: no-repeat, repeat;
-  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 150vh;
   font-family: Tittilum;
 }
 
@@ -131,10 +131,14 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-blend-mode: multiply;
+  background-image: url("../images/projects-bottom.jpg");
+  background-size: cover;
+  background-repeat: repeat;
 }
 
 .card {
-  background-color: rgb(75, 132, 186);
+  background-color: rgb(31, 63, 93);
   opacity: 100%;
   width: 45vw;
   height: 30%;
@@ -144,20 +148,26 @@ export default {
   align-items: center;
 }
 
-.card-header {
+.picture {
   width: 100%;
-  background-color: rgb(75, 132, 186);
-  color: rgb(255, 255, 255);
-  font-weight: 900;
-  text-align: center;
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: row;
 }
+
+.picture .apod-image {
+  margin: 40px;
+  height: 700px;
+  width: 120vw;
+}
+
 .apod h3,
 h4 {
+  margin: 40px;
   color: #c1c6cc;
 }
-.apodImg h3,
-h4 {
-}
+
 .apod img {
   cursor: pointer;
   width: 100%;
@@ -165,16 +175,14 @@ h4 {
 h2,
 p {
   color: white;
+  letter-spacing: 3px;
 }
-.apod-image {
-  height: 400px;
-  width: 100%;
-}
+
 .aboutMars {
   margin-top: 200px;
 }
 .aboutMars img {
-  width: 100%;
+  width: 50%;
 }
 
 .marsTitle {
