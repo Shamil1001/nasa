@@ -150,7 +150,7 @@ export default {
 
 .picture {
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   color: white;
   display: flex;
   flex-direction: row;
@@ -158,29 +158,36 @@ export default {
 
 .picture .apod-image {
   margin: 40px;
-  height: 700px;
+  height: 500px;
   width: 120vw;
+  border-radius: 5px;
 }
 
 .apod h3,
 h4 {
-  margin: 40px;
-  color: #c1c6cc;
+  margin-top: 40px;
+  color: #fff;
 }
 
 .apod img {
   cursor: pointer;
   width: 100%;
 }
+
+.apodData {
+  width: 90%;
+}
 h2,
 p {
   color: white;
   letter-spacing: 3px;
+  text-align: justify;
 }
 
 .aboutMars {
-  margin-top: 200px;
+  margin: 40px;
 }
+
 .aboutMars img {
   width: 50%;
 }
